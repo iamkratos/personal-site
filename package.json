@@ -31,6 +31,7 @@
     "gatsby-plugin-sharp": "^1.6.44",
     "gatsby-plugin-styled-components": "^2.0.9",
     "gatsby-source-filesystem": "^1.5.35",
+    "gatsby-source-wordpress": "^2.0.91",
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.24",
     "moment": "^2.22.1",

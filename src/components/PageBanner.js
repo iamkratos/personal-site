@@ -18,6 +18,7 @@ const Banner = styled.div`
 			height: 300px;
 			background-size: cover;
 			background-position: center;
+			background-color: #000;
 
 			${media.large`height: 450px;`};
 
@@ -95,7 +96,7 @@ export default class PageBanner extends Component {
 						}
 					>
 						<div className="title-wrap">
-							<h1>{title}</h1>
+							<h1 dangerouslySetInnerHTML={{ __html: title }} />
 
 							{date && (
 								<p id="date">Published on {date.format('MMM Do YYYY')}</p>

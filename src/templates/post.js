@@ -32,12 +32,11 @@ const BackWrap = styled.div`
 `;
 
 export default function Template({ data }) {
-	const post = data.markdownRemark;
 	console.log(this);
 	return (
 		<div>
-			<Helmet title={post.frontmatter.title} />
-			<Post postData={post} />
+			<Helmet title={data.wordpressPost.title} />
+			<Post postData={data.wordpressPost} />
 			<BackWrap>
 				<Link to="/blog">
 					<span className="inner-wrap">Back to Blog</span>
@@ -49,14 +48,21 @@ export default function Template({ data }) {
 
 // eslint-disable-next-line
 export const postQuery = graphql`
-	query BlogPostByPath($path: String!) {
-		markdownRemark(frontmatter: { path: { eq: $path } }) {
-			html
-			frontmatter {
-				path
-				title
-				date
-				banner
+	query BlogPostByPath($slug: String!) {
+		wordpressPost(slug: { eq: $slug }) {
+			id
+			title
+			content
+			slug
+			date
+			featured_media {
+				localFile {
+					childImageSharp {
+						sizes(quality: 100, maxWidth: 2100) {
+							...GatsbyImageSharpSizes
+						}
+					}
+				}
 			}
 		}
 	}

@@ -58,24 +58,22 @@ const StyledPost = styled.div`
 `;
 
 const Post = ({ postData }) => {
-	const { html, frontmatter } = postData;
-	const m = moment(frontmatter.date, 'YYYY MM DD');
+	const { title, content, date, slug, featured_media } = postData;
+	const m = moment(date, 'YYYY MM DD');
 	return (
-		// <StyledPost>
-		// 	<h1>{frontmatter.title}</h1>
-		// 	<p id="date">Published on {m.format('MMM Do YYYY')}</p>
-		// 	<div className="postBody" dangerouslySetInnerHTML={{ __html: html }} />
-		// </StyledPost>
-
 		<div>
 			<PageBanner
-				title={frontmatter.title}
-				url={frontmatter.banner}
-				title={frontmatter.title}
+				sizes={
+					featured_media ? featured_media.localFile.childImageSharp.sizes : ''
+				}
+				title={title}
 				date={m}
 			/>
 			<StyledPost>
-				<div className="postBody" dangerouslySetInnerHTML={{ __html: html }} />
+				<div
+					className="postBody"
+					dangerouslySetInnerHTML={{ __html: content }}
+				/>
 			</StyledPost>
 		</div>
 	);

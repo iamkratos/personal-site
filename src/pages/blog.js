@@ -29,7 +29,7 @@ const BlogBanner = styled.div`
 `;
 
 export default ({ data }) => {
-	const posts = data.allMarkdownRemark.edges;
+	const posts = data.allWordpressPost.edges;
 
 	return (
 		<div>
@@ -42,21 +42,26 @@ export default ({ data }) => {
 // eslint-disable-next-line
 export const pageQuery = graphql`
 	query IndexQuery {
-		allMarkdownRemark(
-			limit: 10
-			sort: { fields: [frontmatter___date], order: DESC }
-		) {
+		allWordpressPost {
 			edges {
 				node {
+					title
+					slug
+					date
 					id
-					frontmatter {
-						title
-						path
-						date
+					featured_media {
+						localFile {
+							childImageSharp {
+								sizes(quality: 100, maxWidth: 2100) {
+									...GatsbyImageSharpSizes
+								}
+							}
+						}
 					}
 				}
 			}
 		}
+
 		header: imageSharp(id: { regex: "/blog.png/" }) {
 			sizes(quality: 100, maxWidth: 2000) {
 				...GatsbyImageSharpSizes

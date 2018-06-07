@@ -22,6 +22,15 @@ module.exports = {
 			}
 		},
 		`gatsby-transformer-sharp`,
-		`gatsby-plugin-sharp`
+		`gatsby-plugin-sharp`,
+		{
+			resolve: 'gatsby-source-wordpress',
+			options: {
+				baseUrl: 'outpost.waveymediagroup.com',
+				protocol: 'http',
+				hostingWPCom: false,
+				useACF: true
+			}
+		}
 	]
 };
