@@ -1,37 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-  text-align: left;
-  margin-left: 1.4rem;
-  margin-top: 1.4rem;
-  h1 {
-    color: red;
-    font-size: 1.4rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    border-bottom: 4px solid red;
-    display: inline-flex;
-    a {
-      transition: all .3s ease-in-out;
-      padding: 0 4px;
-      color: red;
-      text-decoration: none;
-      &:hover {
-        color: white;
-        background: red;
-      }
-    }
-  }
-`
+	text-align: left;
+	max-width: 90vw;
+	margin: 30px auto 0px;
+	h1 {
+		font-family: 'Nunito', sans-serif;
+		font-weight: 300;
+		a {
+			transition: all 0.3s ease-in-out;
+			padding: 0 4px;
+			color: black;
+			text-decoration: none;
+			&:hover {
+				color: white;
+				background: black;
+			}
+		}
+	}
+`;
 
 const Header = ({ children }) => {
-  return (
-    <StyledHeader>
-      {children}
-    </StyledHeader>
-  )
-}
+	return <StyledHeader>{children}</StyledHeader>;
+};
 
-export default Header
+export default Header;

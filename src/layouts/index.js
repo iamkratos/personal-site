@@ -1,42 +1,58 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
+import '../assets/base.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { media } from '../helpers';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Main = styled.main`
-  padding: 0 1rem;
-`
+	padding-top: 65px;
 
-const TemplateWrapper = ({ children }) => (
-  <Main>
-    <Helmet
-      title='Superstylin | A Gatsby Starter with Style 🕶️'
-      link={[
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Lato|Poppins:700i'
-        }
-      ]}
-    />
-    <Header>
-      <h1><Link to='/'>Superstylin'</Link></h1>
-      <h2>A <span>Gatsby Starter</span> with <span>Style</span> <i>🕶️</i></h2>
-    </Header>
+	${media.medium`padding-top: 0px;`};
+`;
 
-    {children()}
+const TemplateWrapper = ({ children, data }) => (
+	<Main>
+		<Helmet
+			title="Sam Davidoff | Digital Brand Strategist"
+			link={[
+				{
+					rel: 'stylesheet',
+					href:
+						'https://fonts.googleapis.com/css?family=Lato:400,700,900|Nunito:300,400,700'
+				},
+				{
+					rel: 'stylesheet',
+					href:
+						'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+				}
+			]}
+		/>
+		<Header logo={data.logo} />
 
-    <Footer>
-      <p>Made by <a href='https://twitter.com/bntzio' target='_blank'>@bntzio</a> with ❤️</p>
-    </Footer>
-  </Main>
-)
+		{children()}
+
+		<Footer />
+	</Main>
+);
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
-}
+	children: PropTypes.func
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
+export const query = graphql`
+	query LayoutQuery {
+		logo: imageSharp(id: { regex: "/logo.png/" }) {
+			sizes(maxWidth: 1240) {
+				...GatsbyImageSharpSizes
+			}
+		}
+	}
+`;
