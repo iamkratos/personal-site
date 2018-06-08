@@ -6,19 +6,9 @@ import { TransitionMixin, media } from '../helpers';
 import PageBanner from '../components/PageBanner';
 import ReactLoading from 'react-loading';
 
-const poseProps = {
-	visible: { opacity: 1 },
-	hidden: { opacity: 0 }
-};
-
 const WorkPreviewWrap = styled.div`
 	${TransitionMixin('.25s')};
-	opacity: 0;
-
-	&.active {
-		opacity: 1;
-	}
-
+	opacity: 1;
 	h1 {
 		text-align: center;
 		font-size: 40px;
@@ -86,47 +76,19 @@ class WorkPreview extends Component {
 		};
 	}
 
-	componentDidMount() {
-		let thisFreeze = this;
-		fetch('http://outpost.waveymediagroup.com/wp-json/wp/v2/portfolio')
-			.then(data => {
-				return data.json();
-			})
-			.then(posts => {
-				this.setState({
-					recent_posts: posts
-				});
-			})
-			.then(posts => {
-				console.log(this);
-				thisFreeze.setState({
-					loaded: true
-				});
-			});
-	}
-
 	render() {
-		const { recent_posts } = this.state || [];
+		const posts = this.props.posts.allWordpressWpPortfolio.edges;
+		console.log(posts);
 		return (
 			<Fragment>
-				{this.state.loaded ? (
-					<WorkPreviewWrap className={this.state.loaded ? 'active' : ''}>
-						<h1>Recent Work</h1>
-						<div className="inner-grid">
-							{recent_posts.slice(0, 6).map(post => {
-								return <WorkPreviewCard key={post.id} post={post} />;
-							})}
-						</div>
-					</WorkPreviewWrap>
-				) : (
-					<ReactLoading
-						type={'spin'}
-						color={'#000'}
-						height={70}
-						width={70}
-						className="spinner"
-					/>
-				)}
+				<WorkPreviewWrap>
+					<h1>Recent Work</h1>
+					<div className="inner-grid">
+						{posts.slice(0, 7).map(post => {
+							return <WorkPreviewCard key={post.id} post={post} />;
+						})}
+					</div>
+				</WorkPreviewWrap>
 			</Fragment>
 		);
 	}
@@ -153,7 +115,7 @@ export default ({ data }) => (
 			</div>
 		</div>
 		<section className="recent-work">
-			<WorkPreview />
+			<WorkPreview posts={data} />
 		</section>
 	</StyledAbout>
 );
@@ -168,6 +130,29 @@ export const query = graphql`
 		prof: imageSharp(id: { regex: "/prof.jpg/" }) {
 			sizes(quality: 100, maxWidth: 800) {
 				...GatsbyImageSharpSizes
+			}
+		}
+
+		allWordpressWpPortfolio {
+			edges {
+				node {
+					title
+					acf {
+						site_url
+						client
+						date_completed
+						tags
+					}
+					featured_media {
+						localFile {
+							childImageSharp {
+								sizes(quality: 100, maxWidth: 800) {
+									...GatsbyImageSharpSizes
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

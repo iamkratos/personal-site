@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { TransitionMixin, media } from '../helpers';
+import Img from 'gatsby-image';
 
 const GridPostWrap = styled.div`
 	border: 1px solid #000;
@@ -17,8 +18,14 @@ const GridPostWrap = styled.div`
 			color: #fff !important;
 		}
 	}
+
 	.portfolioBox {
 		background-position: top center;
+	}
+
+	.portfolioThumbnail {
+		height: 400px;
+		position: relative;
 	}
 
 	.grid-post-body {
@@ -73,8 +80,9 @@ const GridPostWrap = styled.div`
 `;
 export default class WorkPreviewCard extends Component {
 	render() {
-		const { post } = this.props;
-		console.log();
+		console.log('props', this.props.post.node);
+		const post = this.props.post.node;
+		console.log('post', post);
 		return (
 			<GridPostWrap>
 				{post.acf.site_url ? (
@@ -85,12 +93,23 @@ export default class WorkPreviewCard extends Component {
 						<div className="grid-post-header">
 							<div className="lightbox">
 								<div className="text-center portfolioThumbnail">
-									<div
+									{/* <div
 										className="portfolioBox"
 										style={{
 											backgroundImage: `url(${
 												post.better_featured_image.source_url
 											})`
+										}}
+									/> */}
+									<Img
+										className="shift"
+										sizes={post.featured_media.localFile.childImageSharp.sizes}
+										style={{
+											position: 'absolute',
+											left: 0,
+											top: 0,
+											width: '100%',
+											height: '100%'
 										}}
 									/>
 								</div>
@@ -98,7 +117,7 @@ export default class WorkPreviewCard extends Component {
 						</div>
 						<div className="grid-post-body">
 							<div className="title-wrap">
-								<h3>{post.title.rendered}</h3>
+								<h3>{post.title}</h3>
 							</div>
 							<div className="btn-wrap">
 								{post.acf.site_url && (
@@ -112,12 +131,14 @@ export default class WorkPreviewCard extends Component {
 						<div className="grid-post-header">
 							<div className="lightbox">
 								<div className="text-center portfolioThumbnail">
-									<div
-										className="portfolioBox"
+									<Img
+										sizes={post.featured_media.localFile.childImageSharp.sizes}
 										style={{
-											backgroundImage: `url(${
-												post.better_featured_image.source_url
-											})`
+											position: 'absolute',
+											left: 0,
+											top: 0,
+											width: '100%',
+											height: '100%'
 										}}
 									/>
 								</div>
@@ -125,7 +146,7 @@ export default class WorkPreviewCard extends Component {
 						</div>
 						<div className="grid-post-body">
 							<div className="title-wrap">
-								<h3>{post.title.rendered}</h3>
+								<h3>{post.title}</h3>
 							</div>
 							<div className="tags-wrap">
 								<h4>
