@@ -192,11 +192,6 @@ const LinkList = () => (
 				<i className="fa fa-github" />
 			</a>
 		</li>
-		<li>
-			<a href="https://github.com/iamkratos" target="_blank">
-				<i className="fa fa-github" /> test
-			</a>
-		</li>
 	</Menu>
 );
 
