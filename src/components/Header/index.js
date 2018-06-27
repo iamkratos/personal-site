@@ -157,7 +157,9 @@ class HamburgerMenu extends React.Component {
 const Header = ({ children, logo }) => {
 	return (
 		<StyledHeader
-			className={`${window.location.pathname == '/resume' ? 'hide' : ''}`}
+			className={`${
+				window && window.location.pathname == '/resume' ? 'hide' : ''
+			}`}
 		>
 			<div className="wrapper">
 				<div className="content-wrap">
