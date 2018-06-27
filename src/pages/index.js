@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { media } from '../helpers';
-
+import Helmet from 'react-helmet';
 const TopBannerWrap = styled.div`
 	height: 101vh;
 	position: relative;
@@ -49,6 +49,8 @@ class IndexPage extends React.Component {
 		const { data } = this.props;
 		return (
 			<TopBannerWrap>
+				<Helmet> <title>Sam Davidoff | Digital Brand Strategist</title>
+				<meta name="description" content="I'm a self-taught developer originally from San Francisco, now living in Brooklyn, NY. I spend the majority of my time working with Wordpress, React, and Shopify." /></Helmet>
 				<Img sizes={data.banner.sizes} />
 
 				<div className="content-wrap">

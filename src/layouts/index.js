@@ -12,15 +12,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Main = styled.main`
-	padding-top: 65px;
+	/* padding-top: 65px;
 
-	${media.medium`padding-top: 0px;`};
+	${media.medium`padding-top: 0px;`}; */
 `;
 
 const TemplateWrapper = ({ children, data }) => (
 	<Main>
 		<Helmet
-			title="Sam Davidoff | Digital Brand Strategist"
 			link={[
 				{
 					rel: 'stylesheet',

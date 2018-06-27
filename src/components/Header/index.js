@@ -89,6 +89,10 @@ const StyledHeader = styled.div`
 			}
 		}
 	}
+
+	&.hide {
+		display: none;
+	}
 `;
 
 class HamburgerMenu extends React.Component {
@@ -152,7 +156,9 @@ class HamburgerMenu extends React.Component {
 
 const Header = ({ children, logo }) => {
 	return (
-		<StyledHeader>
+		<StyledHeader
+			className={`${window.location.pathname == '/resume' ? 'hide' : ''}`}
+		>
 			<div className="wrapper">
 				<div className="content-wrap">
 					<div className="logo-section">

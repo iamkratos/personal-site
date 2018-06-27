@@ -3,6 +3,7 @@ import PostList from '../components/PostList';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import PageBanner from '../components/PageBanner';
+import Helmet from 'react-helmet';
 
 const BlogBanner = styled.div`
 	.gatsby-image-wrapper {
@@ -33,6 +34,7 @@ export default ({ data }) => {
 
 	return (
 		<div>
+			<Helmet title="Blog | Sam Davidoff" />
 			<PageBanner title="Blog" sizes={data.header.sizes} />
 			<PostList posts={posts} />
 		</div>

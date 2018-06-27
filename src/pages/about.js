@@ -4,7 +4,8 @@ import Img from 'gatsby-image';
 import WorkPreviewCard from '../components/WorkPreviewCard';
 import { TransitionMixin, media } from '../helpers';
 import PageBanner from '../components/PageBanner';
-import ReactLoading from 'react-loading';
+
+import Helmet from 'react-helmet';
 
 const WorkPreviewWrap = styled.div`
 	${TransitionMixin('.25s')};
@@ -96,6 +97,9 @@ class WorkPreview extends Component {
 
 export default ({ data }) => (
 	<StyledAbout>
+		<Helmet>
+			<title>About | Sam Davidoff</title>
+		</Helmet>
 		<PageBanner title="About" sizes={data.workbanner.sizes} large={true} />
 		<div className="about-section">
 			<div className="inner-wrap">

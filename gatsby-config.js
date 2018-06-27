@@ -1,7 +1,8 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Superstylin',
-		description: 'A Gatsby Starter with styled-components'
+		title: 'Sam Davidoff',
+		description:
+			"I'm a self-taught developer originally from San Francisco, now living in Brooklyn, NY."
 	},
 	plugins: [
 		'gatsby-plugin-styled-components',
@@ -30,6 +31,27 @@ module.exports = {
 				protocol: 'http',
 				hostingWPCom: false,
 				useACF: true
+			}
+		},
+		{
+			resolve: `gatsby-plugin-sitemap`
+		},
+		{
+			resolve: `gatsby-plugin-favicon`,
+			options: {
+				logo: './src/assets/images/nfavicon.png',
+				injectHTML: true,
+				icons: {
+					android: true,
+					appleIcon: true,
+					appleStartup: true,
+					coast: false,
+					favicons: true,
+					firefox: true,
+					twitter: false,
+					yandex: false,
+					windows: false
+				}
 			}
 		}
 	]
