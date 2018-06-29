@@ -156,7 +156,9 @@ class HamburgerMenu extends React.Component {
 
 const Header = ({ children, logo, currentLink }) => {
 	return (
-		<StyledHeader className={`${currentLink == '/resume' ? 'hide' : ''}`}>
+		<StyledHeader
+			className={`${currentLink == '/resume/' || '/resume' ? 'hide' : ''}`}
+		>
 			<div className="wrapper">
 				<div className="content-wrap">
 					<div className="logo-section">
