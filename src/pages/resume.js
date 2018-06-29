@@ -304,6 +304,7 @@ export default class ResumePage extends Component {
 
 	render() {
 		const { data } = this.props;
+		console.log(this.props);
 		return (
 			<div>
 				<Helmet title="Resume | Sam Davidoff" />
@@ -481,7 +482,7 @@ export default class ResumePage extends Component {
 											this.state.activeJob == 2 ? 'job-body active' : 'job-body'
 										}
 									>
-										<ul class="no-dot">
+										<ul className="no-dot">
 											<li>
 												Oversaw/excecuted Wordpress builds for various athletic
 												companies

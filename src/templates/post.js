@@ -32,7 +32,6 @@ const BackWrap = styled.div`
 `;
 
 export default function Template({ data }) {
-	console.log(this);
 	return (
 		<div>
 			<Helmet title={data.wordpressPost.title} />

@@ -79,14 +79,14 @@ class WorkPreview extends Component {
 
 	render() {
 		const posts = this.props.posts.allWordpressWpPortfolio.edges;
-		console.log(posts);
+
 		return (
 			<Fragment>
 				<WorkPreviewWrap>
 					<h1>Recent Work</h1>
 					<div className="inner-grid">
 						{posts.slice(0, 7).map(post => {
-							return <WorkPreviewCard key={post.id} post={post} />;
+							return <WorkPreviewCard key={post.node.id} post={post} />;
 						})}
 					</div>
 				</WorkPreviewWrap>
@@ -140,6 +140,7 @@ export const query = graphql`
 		allWordpressWpPortfolio {
 			edges {
 				node {
+					id
 					title
 					acf {
 						site_url

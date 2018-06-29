@@ -80,9 +80,7 @@ const GridPostWrap = styled.div`
 `;
 export default class WorkPreviewCard extends Component {
 	render() {
-		console.log('props', this.props.post.node);
 		const post = this.props.post.node;
-		console.log('post', post);
 		return (
 			<GridPostWrap>
 				{post.acf.site_url ? (

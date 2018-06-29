@@ -17,7 +17,7 @@ const Main = styled.main`
 	${media.medium`padding-top: 0px;`}; */
 `;
 
-const TemplateWrapper = ({ children, data }) => (
+const TemplateWrapper = ({ children, data, history }) => (
 	<Main>
 		<Helmet
 			link={[
@@ -33,7 +33,7 @@ const TemplateWrapper = ({ children, data }) => (
 				}
 			]}
 		/>
-		<Header logo={data.logo} />
+		<Header logo={data.logo} currentLink={history.location.pathname} />
 
 		{children()}
 
