@@ -84,10 +84,7 @@ export default class WorkPreviewCard extends Component {
 		return (
 			<GridPostWrap>
 				{post.acf.site_url ? (
-					<a
-						target={post.acf.site_url == '' ? '_self' : '_blank'}
-						href={post.acf.site_url || ''}
-					>
+					<a target={post.acf.site_url == '' ? '_self' : '_blank'} href="#">
 						<div className="grid-post-header">
 							<div className="lightbox">
 								<div className="text-center portfolioThumbnail">

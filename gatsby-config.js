@@ -2,7 +2,8 @@ module.exports = {
 	siteMetadata: {
 		title: 'Sam Davidoff',
 		description:
-			"I'm a self-taught developer originally from San Francisco, now living in Brooklyn, NY."
+			"I'm a self-taught developer originally from San Francisco, now living in Brooklyn, NY.",
+		siteUrl: 'https://www.samdavidoff.com'
 	},
 	plugins: [
 		'gatsby-plugin-styled-components',
