@@ -54,6 +54,13 @@ const SplitGrid = styled.div`
 					color: #fff;
 					font-family: 'Lato', sans-serif;
 					letter-spacing: 2px;
+
+					span {
+						font-size: 0.4em;
+						display: block;
+						letter-spacing: normal;
+						color: #777;
+					}
 				}
 			}
 
@@ -319,7 +326,9 @@ export default class ResumePage extends Component {
 									/>
 								</div>
 								<div className="title">
-									<h1>Sam Davidoff</h1>
+									<h1>
+										Sam Davidoff <span>Designer/Developer</span>
+									</h1>
 								</div>
 								<div className="contact-box">
 									<div className="inner-wrap">

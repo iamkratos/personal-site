@@ -35,7 +35,7 @@ const Banner = styled.div`
 
 	.banner-content {
 		position: absolute;
-		top: 130px;
+		top: 49%;
 		left: 0;
 		right: 0;
 		text-align: center;

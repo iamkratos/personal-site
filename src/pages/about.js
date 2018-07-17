@@ -151,7 +151,7 @@ export const query = graphql`
 					featured_media {
 						localFile {
 							childImageSharp {
-								sizes(quality: 100, maxWidth: 800) {
+								sizes(quality: 100, maxWidth: 2100) {
 									...GatsbyImageSharpSizes
 								}
 							}
