@@ -377,16 +377,10 @@ export default class ResumePage extends Component {
 								</div>
 							</BigTitleWrap>
 							<p>
-								I'm a self-taught web developer now living in Brooklyn, NY. I
-								mostly work with Wordpress, Shopify, and React. Recently, I have
-								focused more on working with Javascript, specifically React,
-								Node, and GatsbyJS.
-							</p>
-							<p>
-								I'm great comunnicator and understand the importance of
-								deadlines. I also publicly acknowledge I do not know everything
-								about web development, but anything I don't know I can look up,
-								understand, and implement.
+								I'm a self-taught web designer/developer now living in Brooklyn,
+								NY. I mostly work with Wordpress, Figma, Shopify, and React.
+								Recently, I have focused more on working with Javascript,
+								specifically Advanced React, Node, and Gatsby.
 							</p>
 						</div>
 						<div className="experience">
