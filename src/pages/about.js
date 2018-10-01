@@ -85,7 +85,7 @@ class WorkPreview extends Component {
 				<WorkPreviewWrap>
 					<h1>Recent Work</h1>
 					<div className="inner-grid">
-						{posts.slice(0, 7).map(post => {
+						{posts.map(post => {
 							return <WorkPreviewCard key={post.node.id} post={post} />;
 						})}
 					</div>
@@ -137,7 +137,7 @@ export const query = graphql`
 			}
 		}
 
-		allWordpressWpPortfolio {
+		allWordpressWpPortfolio(sort: { fields: [date], order: DESC }) {
 			edges {
 				node {
 					id
